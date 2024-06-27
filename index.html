@@ -1,146 +1,140 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
-		<meta charset="utf-8">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>丝绸之路</title>
-		<link rel="stylesheet" type="text/css" href="css/anniu.css"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<style type="text/css">
-			svg {
-			    width: 1200px; /* SVG画布的宽度 */  
-			    height: 500px; /* SVG画布的高度 */  
+		<meta http-equiv="refresh" content="4; url=https://alphaxuan.github.io/silk.roads.github.io/path" />
+	 <style type="text/css">
+	    *{
+	        padding: 0;
+	        margin: 0;
+			
+	    }
+	    #maskBox {
+	        width: 100%;
+	        height: 100%;
+	        overflow: hidden;
+	        position: absolute;
+	        top: 0;
+	        left: 0;
+	    }
+	    /* 父盒子 */
+	    #maskMoveLeft,#maskMoveRight {
+	        position: absolute;
+	        z-index: 99;
+	        height: 100%;
+	        overflow: hidden;
+	        width: 50%;
+	    }
+	    #maskMoveLeft {
+	        left: 0;
+	    }
+	    #maskMoveRight {
+	        right: 0;
+	    }
+	
+	    /* 子盒子 */
+	    #mask_left,#mask_right{
+	        width: 100%;
+	        height: 100%;
+	        position:absolute;
+	        top: 0;
+	    }
+	    #mask_left {
+	        left: 0;
+	        background: url("https://alphaxuan.github.io/silk.roads.github.io/img/灰色.png" ) no-repeat center;
+			background-size: 400%;
 			}
-			.circle-button {
-			    fill: #ffffff; /* 圆形按钮的填充颜色 */  
-			    stroke: #000000; /* 圆形按钮的边框颜色 */  
-			    stroke-width: 2; /* 圆形按钮的边框宽度 */  
-			    cursor: pointer; /* 鼠标悬停时显示小手图标 */  
-			}
-			.bg{
-				background-color: #d5d8cf;
-				position: absolute;
-				width: 100%;
-				height: 100%;
-			}
-			.box{
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				width: 1200px;
-				height: 500px;
-				background-color: #dcbd20;
-				border:10px solid #000;
-				padding: 20px;
-				margin: 100px;
-			}
-			@keyframes extendCurve {
-				0%{  
-			    stroke-dashoffset: 1500; 
-			    }
-			    100%{  
-			    stroke-dashoffset: 0;
-			    }  
-			}
-			#curvePath {
-			  stroke-dasharray: 1500;/*曲线初始长*/
-			  stroke-dashoffset: 1500; /*初始隐藏*/
-			  animation: extendCurve 10s ease-out forwards;
-			}
-			@keyframes fadeIn {
-			  0% { opacity: 0; }  
-			  100% { opacity: 1; }  
-			}
-			#img1 {
-			  opacity: 0;   
-			  animation: fadeIn 1s 7s forwards;  
-			}
-			#img2 {
-			  opacity: 0;   
-			  animation: fadeIn 1s 5.5s forwards;  
-			}
-			#img3 {
-			  opacity: 0;  
-			  animation: fadeIn 1s 3.5s forwards;  
-			}
-			#img4 {
-			  opacity: 0;  
-			  animation: fadeIn 1s 2.5s forwards;  
-			}
-			#img5 {
-			  opacity: 0;  
-			  animation: fadeIn 1s 1s forwards;  
-			}
-			#img6 {
-			  opacity: 0;  
-			  animation: fadeIn 1s 0s forwards;  
-			}
-			#img7 {
-			  opacity: 0;  
-			  animation: fadeIn 3s 0s forwards;  
-			}
-			#img8 { 
-			  opacity: 0;  
-			  animation: fadeIn 3s 0s forwards;  
-			}
-			#img9 {
-			  opacity: 0;  
-			  animation: fadeIn 3s 0s forwards;  
-			}
-			#img10 {
-			  opacity: 0;    
-			  animation: fadeIn 3s 0s forwards;  
-			}
-			svg text {
-			    fill: #000;  
-			    font-family: Arial, sans-serif; 
-			    font-size: 16px; 
-				font-weight: bold;
-			    text-align: center;  
-			    dominant-baseline: middle; 
-			  }
-		</style>
+	    #mask_right {
+	        right: 0;
+	        background: url("https://alphaxuan.github.io/silk.roads.github.io/img/灰色.png") no-repeat center;
+	        background-size: 400%;
+           }
+	    /* 图片 */
+	    #maskImg_right {
+	        position: absolute;
+	        z-index: 99;
+	        height: 100%;
+	        left: 0;
+	    }
+	    #maskImg_left {
+	        position: absolute;
+	        z-index: 99;
+	        height: 100%;
+	        right: 0;
+	    }
+	
+	    #contantMain{
+	        width: 100%;
+	        height: 100%;
+	        background: #ccc;
+	        position: absolute;
+	        z-index: 9;
+	    }
+		#beijing{
+			margin-top: 5%;
+	        width:100%;
+			height:80%;
+		}
+	    </style>
 	</head>
 	<body>
-		<div class="bg">
-			<div class = "box">
-				<svg width="1200" height="500">
-					<image xlink:href="https://alphaxuan.github.io/silk.roads.github.io/img/罗马.jpg" id="img1" x="10" y="250" height="250" width="250" />
-					<text x="50" y="300" text-anchor="middle">罗马</text>
-					<image xlink:href="https://alphaxuan.github.io/silk.roads.github.io/img/伊斯坦布尔.jpg" id="img2" x="180" y="70" height="250" width="250" />
-					<text x="220" y="100" text-anchor="middle">伊斯坦布尔</text>
-					<image xlink:href="https://alphaxuan.github.io/silk.roads.github.io/img/大马士革.png" id="img3" x="500" y="10" height="200" width="200" />
-					<text x="530" y="50" text-anchor="middle">大马士革</text>
-					<image xlink:href="https://alphaxuan.github.io/silk.roads.github.io/img/阿拉木图.jpg" id="img4" x="350" y="250" height="150" width="150" />
-					<text x="465" y="270" text-anchor="middle">阿拉木图</text>
-					<image xlink:href="https://alphaxuan.github.io/silk.roads.github.io/img/喀什.jpg" id="img5" x="600" y="200" height="200" width="200" />
-					<text x="800" y="420" text-anchor="middle">喀什</text>
-					<image xlink:href="https://alphaxuan.github.io/silk.roads.github.io/img/西安.jpg" id="img6" x="1000" y="250" height="200" width="200" />
-					<text x="1000" y="330" text-anchor="middle">西安</text>
-					<image xlink:href="https://alphaxuan.github.io/silk.roads.github.io/img/logo.jpg" id="img7" x="800" y="0" height="300" width="300" />
-					<image xlink:href="https://alphaxuan.github.io/silk.roads.github.io/img/云彩2.jpg" id="img8" x="10" y="-20" height="200" width="200" />
-					<image xlink:href="https://alphaxuan.github.io/silk.roads.github.io/img/云彩1.jpg" id="img9" x="700" y="-50" height="200" width="200" />
-					<image xlink:href="https://alphaxuan.github.io/silk.roads.github.io/img/云彩3.jpg" id="img10" x="1000" y="-40" height="200" width="200" />
-					<path id="curvePath" d="M 1000 300 Q 500 600 500 200 T 100 300" stroke="#aa0000" stroke-width="5" fill="none" />
-					<a xlink:href="https://www.example.com" target="_blank">
-					    <circle class="circle-button" cx="1000" cy="300" r="5" onclick="window.open(this.parentNode.getAttribute('xlink:href'), '_blank')"></circle>
-					</a xlink:href="https://www.example.com" target="_blank">
-					<a>
-						<circle class="circle-button" cx="100" cy="300" r="5" onclick="window.open(this.parentNode.getAttribute('xlink:href'), '_blank')"></circle>
-					</a>
-					<a xlink:href="https://www.jd.com/" target="_blank">
-					  <circle class="circle-button" cx="510" cy="300" r="5" onclick="window.open(this.parentNode.getAttribute('xlink:href'), '_blank')"></circle>
-					</a>
-					<a xlink:href="https://www.jd.com/" target="_blank">
-					  <circle class="circle-button" cx="250" cy="130" r="5" onclick="window.open(this.parentNode.getAttribute('xlink:href'), '_blank')"></circle>
-					</a>
-					<a xlink:href="https://www.jd.com/" target="_blank">
-					  <circle class="circle-button" cx="490" cy="100" r="5" onclick="window.open(this.parentNode.getAttribute('xlink:href'), '_blank')"></circle>
-					</a>
-					<a xlink:href="https://www.jd.com/" target="_blank">
-					  <circle class="circle-button" cx="800" cy="400" r="5" onclick="window.open(this.parentNode.getAttribute('xlink:href'), '_blank')"></circle>
-					</a>
-				</svg>  
-			</div>
+	    <div id="contantMain" >
+			<img id="beijing" src="https://alphaxuan.github.io/silk.roads.github.io/img/背景.png" >
 		</div>
+        
+	    <div id="maskBox">
+	        <div id="maskMoveLeft">
+	            <img id="maskImg_left" src="https://alphaxuan.github.io/silk.roads.github.io/img/卷轴1.png" />
+	            <div id="mask_left"></div>
+	        </div>
+	        <div id="maskMoveRight">
+	            <img id="maskImg_right" src="https://alphaxuan.github.io/silk.roads.github.io/img/卷轴1.png" />
+	            <div id="mask_right"></div>
+	        </div>
+	    </div>
+	
+	    <script  type="text/javascript">
+	         // 画面展开
+	        var bodyW = 1920;
+	        var maskMove = null,progress = 0;
+	        var leftParent = document.getElementById('maskMoveLeft'),
+	            leftChild = document.getElementById('mask_left'),
+	
+	            rightParent = document.getElementById('maskMoveRight'),
+	            rightChild = document.getElementById('mask_right');
+	        function render() {
+	            progress += 5; //修改图像的位置
+	            //  左侧
+	            // 父框右移动
+	            leftParent.style.left = -(progress)+'px';
+	            // 子框左移动
+	            leftChild.style.left = progress+'px';
+	
+	            // 右侧
+	            // 父框右移动
+	            rightParent.style.right = -(progress)+'px';
+	            // 子框左移动
+	            rightChild.style.right = progress+'px';
+	
+	            // 结束运动
+	            if (progress >= bodyW/3) {
+	                //结束 清除dem
+	                leftParent.remove();
+	                rightParent.remove();
+	                window.cancelAnimationFrame(maskMove);
+	                maskMove = null;
+	                return;
+	            }
+	            maskMove = window.requestAnimationFrame(render);
+	        }
+	       
+	       // 进入页面后延时开启动画展示
+	       setTimeout(function(){
+	            render();
+	       },1000)
+	    </script>
+		
 	</body>
 </html>
