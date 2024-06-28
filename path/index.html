@@ -98,10 +98,26 @@
 			    text-align: center;  
 			    dominant-baseline: middle; 
 			  }
+			
 		</style>
 	</head>
 	<body>
+		<audio id="background-music" loop>
+            <source src="https://alphaxuan.github.io/silk.roads.github.io/music/sy.mp3" type="audio/mpeg">
+            您的浏览器不支持音频元素。
+        </audio>
+        <script>
+            document.addEventListener("click", function() {
+                var audio = document.getElementById('background-music');
+                audio.volume = 0.5;
+                audio.play().catch(function(error) {
+                    console.log('音频播放被阻止:', error);
+                });
+                document.removeEventListener('click', arguments.callee); // 取消事件监听
+            }, { once: true }); // 确保事件监听器只执行一次
+        </script>
 		<div class="bg">
+			
 			<div class = "box">
 				<svg width="1200" height="500">
 					<image xlink:href="https://alphaxuan.github.io/silk.roads.github.io/img/罗马.jpg" id="img1" x="10" y="250" height="250" width="250" />
