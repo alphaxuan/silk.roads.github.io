@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间轴页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://alphaxuan.github.io/silk.roads.github.io/img/%E7%BD%97%E9%A9%AC_%E7%BE%8A%E7%9A%AE%E7%BA%B8.jpg'); /* 使用统一背景图片 */
+            background-size: cover; /* 使背景图片覆盖整个区域，保持纵横比 */
+            background-repeat: no-repeat; /* 防止背景图片重复 */
+            background-position: center; /* 将背景图片居中 */
+        }
+        .timeline {
+            width: 10%; /* 将宽度改为10% */
+            border-right: 2px solid #ccc;
+            list-style: none;
+            padding: 20px;
+            background: none; /* 取消单独背景 */
+        }
+        .timeline li {
+            margin: 20px 0;
+            cursor: pointer;
+            font-size: 18px; /* 设置字体大小 */
+            font-weight: bold; /* 设置字体加粗 */
+        }
+        .timeline li.active {
+            font-size: 20px; /* 激活状态字体大小 */
+            font-weight: bold; /* 激活状态字体加粗 */
+            color: #007bff;
+        }
+        .content {
+            width: 90%; 
+            padding: 20px;
+            background: none; /* 取消单独背景 */
+        }
+        .content div {
+            display: none;
+        }
+        .content div.active {
+            display: block;
+        }
+        .content p {
+            font-size: 1.2em; /* 你可以调整这个大小 */
+        }
+        .content img {
+            max-width: 60%;
+            max-height: 80vh; /* 最大高度设置，不超过视口高度的80% */
+            object-fit: contain; /* 保持纵横比 */
+        }
+    </style>
+</head>
+<body>
+    <ul class="timeline">
+        <li data-year="公元二世纪之前">公元二世纪之前</li>
+        <li data-year="1700">1700年</li>
+        <li data-year="1800">1800年</li>
+    </ul>
+    <div class="content">
+        <div data-year="公元二世纪之前">
+            <h2>公元二世纪之前</h2>
+            <h2>罗马帝国开展丝路贸易在某种程度上依赖于帕提亚</h2>
+            <p>由于帕提亚占据着陆上丝绸之路延伸至罗马帝国东部的必经之地,从公元前2世纪末到224年帕提亚亡国,帕提亚基本控制了从木鹿到塞琉西亚、泰西封的丝绸之路主干道。</p>
+            <p>罗马帝国开展丝路贸易在某种程度上依赖于帕提亚,大部分时间,罗马人的丝绸贸易长期由帕提亚人垄断,通过陆路获得东方的丝绸等商品,都要经过帕提亚人的中转。</p>
+            <p>帕提亚为了增强对丝绸贸易的控制能力,在境内建有很多商站。在大部分时期,帕提亚控制着波斯湾港口,同印度进行贸易。</p>    
+            <p>总之,由于罗马帝国和帕提亚长期争夺边境疆土,罗马商人想通过帕提亚境内直接进行丝绸贸易非常困难。</p>
+            <p>公元初两个世纪,中国丝绸越来越多地通过帕提亚来到罗马帝国境内,只有在罗马帝国和帕提亚发生战争时,罗马商人才会转而依赖其他商贸路线。</p>
+            <img src="https://alphaxuan.github.io/silk.roads.github.io/img/%E7%BD%97%E9%A9%AC%E4%B8%8E%E5%B8%95%E6%8F%90%E4%BA%9A.jpg" alt="公元二世纪之前的图片">
+        </div>
+        <div data-year="1700">
+            <h2>1700年</h2>
+            <p>这是1700年的内容。</p>
+            <img src="path/to/your/image1700.jpg" alt="1700年的图片">
+        </div>
+        <div data-year="1800">
+            <h2>1800年</h2>
+            <p>这是1800年的内容。</p>
+            <img src="path/to/your/image1800.jpg" alt="1800年的图片">
+        </div>
+    </div>
+
+    <script>
+        const timelineItems = document.querySelectorAll('.timeline li');
+        const contentDivs = document.querySelectorAll('.content div');
+
+        timelineItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const year = item.getAttribute('data-year');
+
+                // 移除以前的激活状态
+                document.querySelector('.timeline li.active')?.classList.remove('active');
+                document.querySelector('.content div.active')?.classList.remove('active');
+
+                // 添加新的激活状态
+                item.classList.add('active');
+                document.querySelector(`.content div[data-year="${year}"]`).classList.add('active');
+            });
+        });
+
+        // 默认显示第一个时间戳内容
+        timelineItems[0].classList.add('active');
+        contentDivs[0].classList.add('active');
+    </script>
+</body>
+</html>
