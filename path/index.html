@@ -6,21 +6,17 @@
 		<link rel="stylesheet" type="text/css" href="css/anniu.css"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<style type="text/css">
+			body {
+			    display: flex;  
+			    justify-content: center;  
+			    align-items: center;  
+			    height: 100vh; /* 使body占据整个视口的高度 */  
+			    margin: 0; /* 移除默认的body边距 */  
+			}
 			svg {
 			    width: 1200px; 
-			    height: 500px;
-			}
-			.circle-button {
-			    fill: #ffffff; /* 圆形按钮的填充颜色 */  
-			    stroke: #000000; /* 圆形按钮的边框颜色 */  
-			    stroke-width: 2;
-			    cursor: pointer;
-			}
-			.bg{
-				background-color: #d5d8cf;
-				position: absolute;
-				width: 100%;
-				height: 100%;
+			    height: 600px;
+				
 			}
 			.box{
 				display: flex;
@@ -28,10 +24,29 @@
 				align-items: center;
 				width: 80%;
 				height: 70%;
-				background-color: #dcbd20;
-				border:10px solid #000;
+				position: absolute;
 				padding: 20px;
 				margin: 100px;
+			}
+			.circle-button {
+			    fill: #ffffff; /* 圆形按钮的填充颜色 */  
+			    stroke: #000000; /* 圆形按钮的边框颜色 */  
+			    stroke-width: 2;
+			    cursor: pointer;
+			}
+			.bg {  
+			    /* 这里的URL应该是你的图片路径 */  
+			    background-image: url('https://alphaxuan.github.io/silk.roads.github.io/img/羊皮纸1.jpg');  
+			    /* 设置背景图片不重复 */  
+			    background-repeat: no-repeat;  
+			    /* 设置背景图片的位置，这里以居中为例 */  
+			    background-position: center;  
+			    /* 设置背景图片覆盖整个元素 */  
+			    background-size: cover;  
+			    /* 设置元素的高度，这里以100%为例，表示占满整个视口 */  
+			    height: 100%;  
+			    /* 为了让背景图片在元素内部可见，需要设置元素的其他属性，如宽度 */  
+			    width: 100%;  
 			}
 			@keyframes extendCurve {
 				0%{  
@@ -97,8 +112,10 @@
 				font-weight: bold;
 			    text-align: center;  
 			    dominant-baseline: middle; 
-			  }
-			
+			}
+			svg #text1{
+				fill: red;
+			}
 		</style>
 	</head>
 	<body>
@@ -116,10 +133,9 @@
                 document.removeEventListener('click', arguments.callee); // 取消事件监听
             }, { once: true }); // 确保事件监听器只执行一次
         </script>
-		<div class="bg">
-			
+		<div class="bg">	
 			<div class = "box">
-				<svg width="1200" height="500">
+				<svg width="1800" height="800">
 					<image xlink:href="https://alphaxuan.github.io/silk.roads.github.io/img/罗马.jpg" id="img1" x="10" y="250" height="250" width="250" />
 					<text x="50" y="300" text-anchor="middle">罗马</text>
 					<image xlink:href="https://alphaxuan.github.io/silk.roads.github.io/img/伊斯坦布尔.jpg" id="img2" x="180" y="70" height="250" width="250" />
@@ -155,8 +171,17 @@
 					<a xlink:href="https://alphaxuan.github.io/silk.roads.github.io/path/喀什" target="_blank">
 					  <circle class="circle-button" cx="800" cy="400" r="5" onclick="window.open(this.parentNode.getAttribute('xlink:href'), '_blank')"></circle>
 					</a>
+					<text x="600" y="550" text-anchor="middle">丝绸之路是古代连接东西方的贸易和文化交流通道，其历史可以追溯到公元前202年.这条路线最初是为了运输中国出产的丝绸而开辟的，因此得名“丝绸之路”。</text>
+					<text x="295" y="580" text-anchor="middle"> 在历史上，丝绸之路对东西方经济、文化和政治交流起到了重要的作用。</text>
+					<a xlink:href="https://alphaxuan.github.io/silk.roads.github.io/path/知识问答" target="_blank">
+						<text id="text1"  x="650" y="580" text-anchor="middle">点击跳转知识问答模块</text>
+						<line x1="560" y1="590" x2="740" y2="590" stroke="red" stroke-width="1"/> 
+					</a>
 				</svg>  
 			</div>
+		</div>
+	</body>
+</html>
 		</div>
 	</body>
 </html>
