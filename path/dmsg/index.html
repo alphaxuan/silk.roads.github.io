@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>大马士革</title>
+		<link rel="stylesheet"  href="css/style.css"/>
+		<style type="text/css">
+			.bg{
+				
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				justify-content: center;
+				align-items: center;
+				overflow: hidden;
+				background-image:url("https://alphaxuan.github.io/silk.roads.github.io/img/yangpizi gai.png");
+				background-position: center;
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+            .top-left-text {
+                position: absolute; /* 使用绝对定位 */
+                top: 0; /* 距离页面顶部为0 */
+                left: 0; /* 距离页面左侧为0 */
+                color: black; /* 文字颜色，可以根据需要调整 */
+                font-family: '楷体', Arial, sans-serif;
+				font-size: 80px;
+            }
+			.left2-text{
+				position: absolute; /* 使用绝对定位 */
+				top: 40px; /* 距离页面顶部为0 */
+				left: 480px; /* 距离页面左侧为0 */
+				color: black; /* 文字颜色，可以根据需要调整 */
+				font-family: '楷体', Arial, sans-serif;
+				font-size: 40px;
+			}
+			.left3-image {
+			    position:relative;  /* 绝对定位 */
+				top: 30px; 
+			    left: 750px;
+				width:50%;
+				min-height:0px;
+			}
+            .left3-image img{
+				max-width: 100%; /* 确保图片宽度不超过容器宽度 */
+				height: auto; /* 保持图片原始宽高比 */
+				object-fit: contain; /* 等比例缩放图片至容器大小 */
+				display: block; /* 移除图片下方可能的空隙 */
+				position: absolute; /* 图片绝对定位 */
+				top: 0; /* 图片顶部对齐容器顶部 */
+			}
+			.left4-text{
+				position:absolute; /* 使用绝对定位 */
+				top:0px;/* 距离页面顶部为0 */
+				left: 1200px; /* 距离页面左侧为0 */
+				color: black; /* 文字颜色，可以根据需要调整 */
+				font-family: '楷体', Arial, sans-serif;
+				font-size: 40px;
+			}
+			.left4-text:hover {
+			    color: red; /* 鼠标悬停时的颜色，这里设为红色 */
+			}
+			.vertical-text1 {
+				position: fixed; /* 固定位置 */
+			    writing-mode: vertical-lr;
+			    text-orientation: upright;
+			    white-space: nowrap;
+			    /* 根据需要调整字体大小等其他样式 */
+				display: inline;
+				top:200px;
+				left:10px;
+				letter-spacing: 20px;
+			    font-size: 50px;
+				z-index: 1000;
+			}
+			.vertical-text2{
+				position: fixed; /* 固定位置 */
+				writing-mode: vertical-lr;
+				text-orientation: upright;
+				white-space: nowrap;
+				/* 根据需要调整字体大小等其他样式 */
+				display: none;
+				top:120px;
+				left:10px;
+				letter-spacing: 15px;
+				font-size: 50px;
+				z-index: 1000;
+			}
+			.vline {
+			  display: inline-block;
+			  width: 5px; /* 竖线的宽度 */
+			  height: 100%; /* 竖线的高度，可以根据需要调整 */
+			  background-color: black; /* 竖线的颜色 */
+			  margin-left:80px ;
+			}
+			
+			.bottom-right-text1 {
+			    position: fixed; /* 固定位置 */
+				top: 120px;
+			    left: 100px; /* 距离左侧的距离 */
+			    color: #333; /* 文字颜色 */
+			    font-size: 20px; /* 文字大小 */
+			    z-index: 1000; /* 确保文字在最上层，不会被其他元素遮挡 */
+			    text-align: left; /* 文字左对齐 */
+				font-family:  Arial, sans-serif;
+				opacity: 0;
+				animation: fade-in 4s forwards;
+				transition: opacity 0.5s; /* 平滑过渡效果 */
+			}
+			@keyframes fade-in{
+				0%{
+					opacity: 0;
+				}
+				100%{
+					opacity: 1;
+				}
+			}
+			.bottom-right-text2{
+				top:220px;
+			}
+			.bottom-right-text3{
+				top:280px;
+			}
+			.bottom-right-text4{
+				top:380px;
+			}
+			.bottom-right-text5{
+				top:420px;
+			}
+			.bottom-bottom-text1 {
+			    position: fixed; /* 固定位置 */
+				top: 120px;
+			    left: 100px; /* 距离左侧的距离 */
+			    color: #333; /* 文字颜色 */
+			    font-size: 20px; /* 文字大小 */
+			    z-index: 1000; /* 确保文字在最上层，不会被其他元素遮挡 */
+			    text-align: left; /* 文字左对齐 */
+				font-family:  Arial, sans-serif;
+			}
+			.bottom-bottom-text2{
+				top: 180px;
+			}
+			.bottom-bottom-text3{
+				top:260px;
+			}
+			.bottom-bottom-text4{
+				top:320px;
+			}
+			.bottom-bottom-text5{
+				top:380px;
+			}
+			.bottom-bottom-text6{
+				top:460px;
+			}
+			.bottom-img{
+				position: fixed; 
+				bottom: 0;
+				left:150px;
+				height:290px;
+				width:100%;
+				text-align: center;/* 图片居中 */
+			}
+			.bottom-img img {
+			    max-height: 100%; /* 图片宽度不超过容器宽度 */
+			    height: auto; /* 保持图片原始宽高比 */
+			}
+			.bottom-img2{
+				animation: scaleAnimation 2s infinite alternate;
+			    position:fixed;
+				bottom:0;
+				left:280px;
+				width:70%;
+			}
+			.bottom-img2 img {
+			    max-height: 100%; /* 图片宽度不超过容器宽度 */
+			    height: auto; /* 保持图片原始宽高比 */
+			}
+			@keyframes scaleAnimation {
+                from {
+					transform: scale(0.8);
+				}
+				to {
+					transform: scale(1.2);
+				}
+			}
+			.bottom-right-img{
+				position:fixed;
+				bottom:0;
+				right:100px;
+				height:200px;
+			}
+			.bottom-right-img img {
+			    max-height: 100%; /* 图片宽度不超过容器宽度 */
+			    height: auto; /* 保持图片原始宽高比 */
+			}
+            .bottom-img-text{
+				position:fixed;
+				bottom:160px;
+				right:150px;
+				font-size: 15px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div class="bg">
+			<div class="top-left-text">
+			   大马士革
+			</div>
+			<div class="left3-image">
+				<img src="https://alphaxuan.github.io/silk.roads.github.io/img/right-removebg-preview.png">
+			</div>
+			<hr style="height:5px; background-color:black;margin-top: 100px;"></hr>
+			<div class="vline"></div>
+			<div class="left2-text">
+				建城四千五百年
+			</div>
+			<div class="vertical-text1" id="text0" >
+				建城四千五百年
+			</div>
+			<div class="vertical-text2" id="text1" >
+				“丝绸之路”上的重要通道
+			</div>
+			<div class="left4-text">
+				<p onclick="toggleTextOpacity()">“丝绸之路”上的重要通道</p>
+			</div>
+			<div  id="overlayText" class="bottom-right-text1" style="display: inline;">
+			   <p >神奇的传说不足为信。但是，历史的记载和文物证明，大马士革确是世界上最古老的城市之一。它有文字可考的历史至少已有4，500年。
+			   在公元前二十五世纪著名的玛丽档案中，就曾提到过大马士革的名字。公元前十九世纪埃及最早的历史文献中，也有过关于大马士革城的记载。
+			   近年来，在叙利亚北部城市阿勒颇的考古挖掘中，人们发现公元前2.500—2，400年间伊比莱王国的泥板中也记有大马士革的名字。
+			   公元前十六世纪，一个来自阿拉伯半岛古老的游牧部落塞姆族的主要支系—阿拉美亚人，在叙利亚建立了沙马尔王国，把大马士革作为首都。</p>
+			   <p id="bottom-right-text2">黄昏时分站在卡辛山的山坡上，遥望映照山下城区的落日余晖，聆听远处传来的清真寺阿訇的晚祷，最能激起人们思古之幽情。从公元前后直到今天的两千多年间，这座古城经历过多少帝国的兴衰啊！</p>
+			   <p id="bottom-right-text3">公元前333年，马其顿帝国皇帝亚历山大大帝打败波斯人后，征服了叙利亚全境。激起的是塞琉古王朝的统治，它给大马士革带来希腊的文化和文明。历史学家证实，在古希腊人统治大马士革的269年间，他们在卡辛山的山坡上种满奇花异卉，
+			   地中海的微风徐徐吹来，整个大马士革香气满城，芬芳扑鼻。因此大马士革又被称为“芬芳的城市”。强大的罗马帝国的统治延续了四个世纪之久。这期间，大马士革城中矗立起许多雄伟壮丽的罗马式建筑。至今残存的老区城墙和拱门就是罗马帝国时代建造的。
+			   大马士革的优秀人物也为罗马帝国的政治、哲学、艺术和建筑的发展作出了重要贡献。例如，大马士革建筑家阿波罗多鲁斯就曾为罗马设计了著名的“图拉真”公所。</p>
+			   <p id="bottom-right-text4">威名显赫、不可一世的罗马帝国也终于衰亡，代之而起的是半壁江山的东罗马，即拜占廷帝国的统治。公元636年，新兴的阿拉伯帝国的军队在约旦河支流雅穆克河上的一次决定性战役中，击败并驱逐了拜占庭军队。从此，在大马士革确立了阿拉伯帝国的统治。</p>
+			   <p id="bottom-right-text5">公元661年，倭玛雅王朝的哈里发(意即“真主使者的继承人”)摩阿维亚把大马士革定为阿拉伯帝国的首都。大马士革开始了近一百年的繁荣鼎盛时期。这期间，阿拉伯帝国对外进行了大规模的扩张和征战。到八世纪中叶，阿拉伯帝国的军队西边打到西班牙，占领比利牛斯半岛；
+			   东边征服伊朗，并一直扩张到印度河流域，占领阿富汗，达到帕米尔高原，直接威胁大唐王朝边疆的安全。这样，一个以大马士革为中心、东起印度河流域、西临大西洋、横跨亚非欧三大洲的强大的阿拉伯帝国兴起。大马士革被称为“阿拉伯跳动的心脏”。
+			   当时世界上，对于阿拉伯帝国，只有中国的大唐王朝可以与之匹敌。正是在这个时期，中华民族和阿拉伯民族通过著名的“丝绸之路”，进行了频繁的经济文化交往。</p>
+			</div>
+			<div id="baseText" class="bottom-bottom-text1" style="display: none;">
+				<p > 从此，大马士革成为“丝绸之路”上的重要通道。据史书记载，早在公元115年前后，中国的丝绸就传到大马士革。那时中国的丝绸、陶瓷器是用骆驼商队通过奈伯特人建立的王国首都皮特拉(今约旦境内)转运到当时腓尼基王国(在地中海东岸，即今天的叙利亚和黎巴嫩的沿海一带)，
+				在那里进行染色和加工，使之适应罗马人的需要，然后再运到罗马和大马革等地的市场出售。</p>
+				<p id="bottom-bottom-text2">直到公元五世纪，罗马人还不知道生产丝的秘密。他们最初以为丝绸是用某种植物的绒毛制成的。据说，在公元418-422年当上罗马皇帝的叙利亚人荷诺利阿斯是第一个完全穿上中国丝绸的罗马男人。当时，只有罗马宫廷里的后妃和贵妇人才能穿得起中国丝绸。
+				因为那时的中国丝绸织品比金子还贵。史书说，公元三世纪时，为了经营丝绸和陶瓷器等中国商品，一个叙利亚商人在中国住了很长时间</p>
+				<p id="bottom-bottom-text3">唐代，叙利亚人阿罗本沿着丝绸之路，历尽千辛万苦到达中国传播景教，并在长安建立了大秦寺。西安市保存至今的《大秦景教流行中国碑》上，列有全部传教士的名字，其中中国人和叙利亚人的名字并列。碑上还有一段古叙利亚文字，记载着建碑的希腊纪年和建碑人的身份。</p>
+				<p id="bottom-bottom-text4">大马士革古代“丝绸驿站”的遗迹。这是一个坐落在老城区哈马迪亚市场旁边的四合院木石结构房屋，分上下两层，院中央有一个卫生口的水池。驿站的楼下是拴骆驼和马匹的地方，楼上有过往丝绸商人住宿的房间，院子里则是进行丝绸交易的现场。</p>
+				<p id="bottom-bottom-text5">在大马革的国家博物馆里，有一些中国古代陶瓷和丝绸织品。其中一个九世纪的唐三彩陶俑特别引人注目。这是一个骑着马的蒙古士兵。他右手握剑，左手执盾，正在同盘绕在马腿上的一条龙进行搏斗。
+				这个陶俑造型别致生动，彩饰新颖细腻，釉色莹润鲜艳，反映了中国古代陶瓷高度的艺术水平。叙利亚国家博物馆把这件展品作为珍贵文物拍成照片，印制成明信片，向来自世界各国的参观者出售</p>
+				<p id="bottom-bottom-text6">今天的大马士革人像他们的祖先一样，热爱和珍惜中国的瓷器。许多人以拥有和保存中国瓷器为荣。特别是一些书香门第和富庶殷实人家，把中国瓷器视作传家宝，加以珍藏。女儿结婚时，母亲把家中珍藏多年的中国瓷器作为嫁妆赠给女儿，世代相传。</p>
+			</div>
+			<div class="bottom-img">
+				<img src="https://alphaxuan.github.io/silk.roads.github.io/img/R-C__1_-removebg-preview.png">
+			</div>
+			<div class="bottom-img2">
+				<img src="https://alphaxuan.github.io/silk.roads.github.io/img/OIP-C__1_-removebg-preview.png">
+			</div>
+			<div class="bottom-img-text">
+				点击返回地图页
+			</div>
+			<a href="https://alphaxuan.github.io/silk.roads.github.io/path/">
+				<img class="bottom-right-img" src="https://alphaxuan.github.io/silk.roads.github.io/img/R-C__2_-removebg-preview.png" >
+			</a>
+		</div>
+	    <script  type="text/javascript">
+			function toggleTextOpacity() {
+			    // 获取SVG中的文字元素
+			    var overlayText = document.getElementById('overlayText');
+			    var baseText = document.getElementById('baseText');
+				var text0 = document.getElementById('text0');
+			    var text1 = document.getElementById('text1');
+			    // 切换overlayText的可见性
+			    if (overlayText.style.display === 'none') {
+			        overlayText.style.display = 'inline';
+					baseText.style.display = 'none';
+					text0.style.display = 'inline';
+					text1.style.display = 'none';
+			    } else {
+			        overlayText.style.display = 'none';
+					baseText.style.display = 'inline';
+					text0.style.display = 'none';
+					text1.style.display = 'inline';
+			    }
+			}
+		</script>	
+	</body>
+</html>
